@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "/Users/abdo/Desktop/TeknoHome_website/tekno-home/src/components";
+import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "/Users/abdo/Desktop/TeknoHome_website/TeknoHome/tekno-home/src/components";
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
