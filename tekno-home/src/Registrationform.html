@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #0c0137, #042958); /* Gradient purple background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+  
+        .registration-block {
+
+          background-color: #fff; /* White background for the registration block */
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          width: 300px;
+          text-align: center;
+        }
+  
+        .registration-block h2 {
+          margin-bottom: 20px;
+          color: #333;
+        }
+  
+        .registration-form input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          box-sizing: border-box;
+        }
+  
+        .registration-form button {
+          background-color: #3498db;
+          color: #fff;
+          padding: 10px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+    <div class="registration-block" id="registrationBlock">
+        <h2>Registration Form</h2>
+        <form class="registration-form" id="registrationForm" onsubmit="submitForm(event)">
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <input type="tel" name="PhoneNumber" placeholder="Phone Number" required>
+            <input type="text" name="Description" placeholder="Description" required>
+            <button type="submit" id="submitButton">Register</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const formData = {
+                Name_Customer: document.querySelector('input[name="Name"]').value,
+                "e-mail_Customer": document.querySelector('input[name="Email"]').value,
+                Phone_Number: document.querySelector('input[name="PhoneNumber"]').value,
+                Customer_desc: document.querySelector('input[name="Description"]').value,
+                Date_Customer: new Date().toISOString().slice(0, 19).replace('T', ' ')
+            };
+
+            fetch('http://localhost:3000/addCustomer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('registrationBlock').innerHTML = "<h2>Thanks for signing up with us!</h2><p>We will contact you soon!</p>";
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
