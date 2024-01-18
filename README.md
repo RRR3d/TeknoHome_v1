@@ -12,6 +12,9 @@ Welcome to the TeknoHome GitHub repository! This repository contains the source 
 - [Contributing](#contributing)
 - [License](#license)
 
+  
+![image](https://github.com/RRR3d/TeknoHome_v1/assets/105751665/59b50bb6-594c-4819-8a4a-c8e8a28898cb)
+
 ## Features
 
 - **Smart Home Solutions**: Explore our range of smart home solutions, including home automation, security systems, energy management, and more.
